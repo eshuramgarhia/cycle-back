@@ -13,8 +13,8 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'master',
-                    url: 'https://github.com/eshuramgarhia/last-try.git'
+                git branch: 'main',
+                    url: 'https://github.com/eshuramgarhia/cycle-back.git'
             }
         }
 
