@@ -2,11 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS'   // Jenkins > Global Tool Configuration ch NodeJS name
-    }
-
-    environment {
-        NODE_ENV = 'NodeJS 18.1.0'
+        nodejs 'NodeJS'
     }
 
     stages {
@@ -14,21 +10,24 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/eshuramgarhia/cycle-back.git'
+                url: 'https://github.com/eshuramgarhia/cycle-back.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat 'npm install'
+                dir('BicycleRenterServer') {
+                    bat 'npm install'
+                }
             }
         }
 
-        stage('Run Tests') {
+        stage('Run Server') {
             steps {
-                bat 'npm test'
+                dir('BicycleRenterServer') {
+                    bat 'npm start'
+                }
             }
         }
-
     }
-  }
+}
