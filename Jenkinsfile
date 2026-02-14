@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        NODE_ENV = 'node_18_LTS'
+        NODE_ENV = 'NodeJS 18.1.0'
     }
 
     stages {
@@ -14,7 +14,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/eshuramgarhia/cycle-back.git'
+                    url: ''
             }
         }
 
